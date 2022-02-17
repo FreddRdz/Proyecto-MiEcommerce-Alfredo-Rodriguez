@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/provisional.css" />
     <link rel="stylesheet" href="/css/footer-abajo.css" />
     <title>Login</title>
   </head>
@@ -13,6 +14,14 @@
       <img src="/assets/MiEcommerce.png" alt="" class="logo" />
     </header>
     <main class="main-container">
+      <div class="errores">
+        <p><strong>¡Error en el formulario!</strong></p>
+        <ul>
+          <li></li>
+        </ul>
+
+        <button class="botonMensaje">Entendido</button>
+      </div>
       <div class="background-login-aqua">
         <div class="component-login">
           <div class="form">
@@ -37,6 +46,15 @@
               <p class="texto-alerta"><%= errors.password.msg %></p>
               <% } %>
               <button type="submit" class="button-login">Iniciar Sesión</button>
+              <label
+                ><input
+                  type="checkbox"
+                  name="recuerdame"
+                  class="recuerdame"
+                  value=""
+                />
+                Recuerdame</label
+              >
             </form>
           </div>
           <div class="text-no-cuenta">
@@ -48,4 +66,5 @@
     </main>
     <%- include('../partials/footer.ejs') %>
   </body>
+  <script defer src="/js/login.js"></script>
 </html>

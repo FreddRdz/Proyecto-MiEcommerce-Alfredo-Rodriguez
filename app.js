@@ -9,6 +9,7 @@ app.use(express.static("public"));
 // app.use(express.static("assets"));
 // app.use(express.static("src"));
 app.use(express.urlencoded({ extended: false }));
+//app.use(require("cors")());
 
 //Rutas
 app.set("view engine", "ejs");
@@ -33,10 +34,11 @@ app.use("/", productRoute);
 app.use("/", storeRoute);
 app.use("/", cartRoute);
 
-// CHECKOUT
-app.get("*", function (req, res) {
-  res.status(404).render("checkout");
-});
+//Checkout
+app.get("/checkout", (req, res) => res.render("checkout"));
+
+// Page not found
+app.get("*", (req, res) => res.status(404).render("pagenotfound"));
 
 //Servidor
 app.listen(PORT, () => {
